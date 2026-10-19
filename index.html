@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arewa Moms in Tech Initiative</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f7f8f2;color:#23352b}
+header{background:#145c40;color:white;padding:35px 8%;text-align:center}
+main{max-width:850px;margin:30px auto;padding:20px}
+section{background:white;padding:24px;margin:18px 0;border-radius:14px}
+input,button{padding:12px;font-size:16px;border-radius:7px}
+input{border:1px solid #bbb;width:55%;max-width:280px}
+button{background:#145c40;color:white;border:0;cursor:pointer}
+.card{background:#eaf3eb;padding:15px;margin:10px 0;border-radius:9px}
+small{color:#58665d}
+</style>
+</head>
+<body>
+<header>
+<h1>Arewa Moms in Tech Initiative</h1>
+<p>Skills, opportunities and community for stay-at-home mothers.</p>
+</header>
+<main>
+<section>
+<h2>Welcome, Mum!</h2>
+<p>Explore digital skills, career resources and a supportive community designed around motherhood.</p>
+</section>
+
+<section>
+<h2>Find resources near you</h2>
+<p>Enter a sample postcode to try our demonstration.</p>
+<input id="postcode" placeholder="e.g. 900001" aria-label="Sample postcode">
+<button onclick="lookup()">Find resources</button>
+<div id="result" aria-live="polite"></div>
+<small>Demo only: postcode results are simulated and are not verified by NIPOST.</small>
+</section>
+
+<section>
+<h2>Explore our programmes</h2>
+<div class="card"><h3>Digital Skills Academy</h3><p>Explore customer support, virtual assistance, content creation and digital tools.</p></div>
+<div class="card"><h3>Career Readiness</h3><p>Build your CV, practise interviews and learn how to identify job opportunities.</p></div>
+<div class="card"><h3>Mothers' Support Circle</h3><p>Connect with peers, share experiences and encourage one another.</p></div>
+</section>
+
+<section>
+<h2>Sample community hubs</h2>
+<p>Illustrative locations for planning future community activities:</p>
+<ul>
+<li>North Star Learning Hub — sample location, Abuja</li>
+<li>Green Path Community Hub — sample location, Gombe</li>
+<li>Bright Futures Learning Hub — sample location, Lagos</li>
+</ul>
+<small>These are fictional demonstration entries, not verified facilities.</small>
+</section>
+</main>
+<script>
+function lookup(){
+ const code=document.getElementById('postcode').value.trim();
+ const result=document.getElementById('result');
+ const samples={
+ '900001':'Illustrative area: Abuja (FCT). Potential resources: digital skills sessions and peer-support activities.',
+ '760001':'Illustrative area: Gombe. Potential resources: flexible learning and community support.',
+ '100001':'Illustrative area: Lagos. Potential resources: career-readiness sessions and digital skills.'
+ };
+ if(!code){result.innerHTML='<p>Please enter a sample postcode.</p>';return;}
+ result.innerHTML='<div class="card"><strong>Prototype result</strong><p>'+
+ (samples[code]||'Sample postcode received: '+code+'. A live version would check the NIPOST postcode service and display verified location information.')+
+ '</p></div>';
+}
+</script>
+</body>
+</html>
